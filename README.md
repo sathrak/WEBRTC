@@ -12,6 +12,7 @@
 ## WebRTC has several JavaScript APIs -
 
 
+
 RTCPeerConnection:
 ==================
 
@@ -108,13 +109,13 @@ CreateAnswer:
 
 onicecandidate:
 ===============
-The RTCPeerConnection.onicecandidate property is an EventHandler which specifies a function to be called when the icecandidate event occurs on an RTCPeerConnection instance. This happens whenever the local ICE agent needs to deliver a message to the other peer through the signaling server. This lets the ICE agent perform negotiation with the remote peer without the browser itself needing to know any specifics about the technology being used for signaling; simply implement this method to use whatever messaging technology you choose to send the ICE candidate to the remote peer.
+	The RTCPeerConnection.onicecandidate property is an EventHandler which specifies a function to be called when the icecandidate event occurs on an RTCPeerConnection instance. This happens whenever the local ICE agent needs to deliver a message to the other peer through the signaling server. This lets the ICE agent perform negotiation with the remote peer without the browser itself needing to know any specifics about the technology being used for signaling; simply implement this method to use whatever messaging technology you choose to send the ICE candidate to the remote peer.
 
-RTCConn.onicecandidate = function(event) {
-	if (event.candidate) {
-		// Send the candidate to the remote peer
-		WebRtcWebResponse.WebrtcResponse(JSON.stringify(event.candidate),'iceCallInit',3);
-	}else{
-		// All ICE candidates have been sent
+	RTCConn.onicecandidate = function(event) {
+		if (event.candidate) {
+			// Send the candidate to the remote peer
+			WebRtcWebResponse.WebrtcResponse(JSON.stringify(event.candidate),'iceCallInit',3);
+		}else{
+			// All ICE candidates have been sent
+		}
 	}
-}
